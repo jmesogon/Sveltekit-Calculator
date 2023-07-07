@@ -107,7 +107,6 @@
 		display: grid;
 		grid-template-columns: repeat(4, 25%);
 		grid-auto-rows: 1fr;
-		gap: 2px;
 		width: 100%;
 		height: auto;
 		border: 1px double;
@@ -118,23 +117,24 @@
 		padding: 20px 0;
 		gap: 10px;
 		height: 100px;
-		border: 10px solid blue;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 	.keypad input,
 	.keypad .result {
-		color: #fff;
-		background-color: rgba(0, 0, 0, 0.7);
-		font-size: 2rem;
 		user-select: none;
 		height: 50px;
-		border: 1px solid red;
 		margin: 0 !important;
 		padding: 5px 10px;
 		text-align: right;
 		pointer-events: none;
-		width: 75%;
+		width: 90%;
+	}
+	.keypad input{
+		font-size: 1.5rem;
+	}
+	.keypad .result{
+		font-size: 2.5rem;
 	}
 </style>
