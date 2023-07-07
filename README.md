@@ -1,38 +1,7 @@
-# create-svelte
+# Calculator App Using Sveltekit
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This app uses REST API to compute the expression and retrieve the answer. Also, the app does not use eval and Function
 
-## Creating a project
+The user can click on the buttons to generate an expression that will be displayed. Every part of expression (number, decimal, operation) is stored in an array. After clicking equals (=), the array will be send to server.ts using API fetch POST method to process.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+In order to process the equation, the app will loop until the array is down to index 0. The app will first check if there is multiplication and division (MDAS) to evaluate. If M and D of MDAS is present, the app will get the position/index of the operation which will be stored in a variable x, and then evaluate it first by getting the numbers before and after the operation and multiplying/ dividing them. after that, the app will splice the array and replace the x - 1 index of array as the result and then removing the x and x + 1 index. The app will continue to do this until M and D operations in MDAS is evaluated. And it will do the same thing to A and S operation. After evaluating the entire array, the result will be sent back to page and will be displayed. 
